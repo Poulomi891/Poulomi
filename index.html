@@ -1,114 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Poulomi | PhD Student at IISER Bhopal</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #005f73;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      margin: 0.5rem 0;
-    }
-    .bio {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    a {
-      color: #0077b6;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poulomi Bhattacharya | PhD Scholar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-main: #2d3748;
+            --text-secondary: #718096;
+            --primary: #667eea;
+            --primary-hover: #5a67d8;
+            --card-bg: #ffffff;
+            --accent-1: #fed7e2;
+            --accent-1-text: #b83280;
+            --accent-2: #c6f6d5;
+            --accent-2-text: #2f855a;
+            --accent-3: #eebbea;
+            --accent-3-text: #6b46c1;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            position: sticky;
+            top: 3rem;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Primary Download Button */
+        .btn-download {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 999px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Icon Buttons */
+        .icon-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1rem;
+            background: #f7fafc;
+            color: var(--text-main);
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .icon-btn:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+
+        .skills-container {
+            text-align: left;
+        }
+
+        .skills-container h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pill {
+            background: var(--accent-2);
+            color: var(--accent-2-text);
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pill:nth-child(even) {
+            background: var(--accent-1);
+            color: var(--accent-1-text);
+        }
+        
+        .pill:nth-child(3n) {
+            background: var(--accent-3);
+            color: var(--accent-3-text);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px -2px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -5px rgba(0,0,0,0.08);
+        }
+
+        .card-p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-p strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Achievements */
+        .achieve-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+
+        .achieve-icon {
+            background: #ebf4ff;
+            color: #3182ce;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .achieve-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        
+        .achieve-text strong {
+            color: var(--text-main);
+        }
+
+        /* Publications */
+        .pub-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .pub-card:hover {
+            border-color: var(--primary);
+        }
+
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            gap: 1rem;
+        }
+
+        .pub-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .btn-paper {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .btn-paper:hover {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .pub-authors {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .pub-authors strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .pub-venue-badge {
+            display: inline-block;
+            background: #ebf4ff;
+            color: #2b6cb0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .edu-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .edu-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card h4 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .edu-grade {
+            display: inline-block;
+            background: #f7fafc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a5568;
+            border: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Poulomi</h1>
-    <h2>PhD Student | IISER Bhopal</h2>
-  </header>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <img src="poulomi.jpeg" alt="Poulomi Bhattacharya" class="profile-pic">
+            <h1>Poulomi Bhattacharya</h1>
+            <h2>PhD Scholar @ IISER Bhopal</h2>
 
-  <main>
-    <p class="bio">
-      Hello! I’m Poulomi, a PhD student at <strong>IISER Bhopal</strong>. My research interests lie in image and video deepfake generation and detection.
-    </p>
+            <a href="Poulomi_Bhattacharya_Resume.pdf" target="_blank" class="btn-download">
+                Download My CV
+            </a>
 
-    <p class="bio">
-      You can find my publications, projects, and contact information here. Feel free to reach out!
-    </p>
+            <div class="icon-links">
+                <a href="mailto:poulomi24@iiserb.ac.in" class="icon-btn">📧 poulomi24@iiserb.ac.in</a>
+                <a href="https://www.linkedin.com/in/poulomi-bhattacharya-35a510229/" target="_blank" class="icon-btn">🔗 LinkedIn Profile</a>
+                <a href="https://scholar.google.com/citations?user=IGVsDFIAAAAJhl=en" target="_blank" class="icon-btn">🎓 Google Scholar</a>
+                <a href="https://github.com/Poulomi891" target="_blank" class="icon-btn">💻 GitHub</a>
+                <a href="https://tbvl22.github.io/website/home.html" target="_blank" class="icon-btn">🔬 TBVL Research Lab</a>
+            </div>
 
-    <p class="bio">
-      📧 Email: <a href="mailto:poulomi24@iiserb.ac.in">poulomi24@iiserb.ac.in</a><br/>
-      🔗 GitHub: <a href="https://github.com/Poulomi891" target="_blank">github.com/Poulomi891</a>
-    </p>
-    <hr/>
+            <div class="skills-container">
+                <h4>Skills & Tools</h4>
+                <div class="pill-container">
+                    <span class="pill">C</span>
+                    <span class="pill">Python</span>
+                    <span class="pill">Mathematica</span>
+                    <span class="pill">PyTorch</span>
+                    <span class="pill">TensorFlow</span>
+                    <span class="pill">MATLAB</span>
+                    <span class="pill">LaTeX</span>
+                </div>
+            </div>
+        </aside>
 
-    <h2>Publications</h2>
-    <ul class="bio">
-      <li><strong>Gesture Recognition for Emergencies: Dataset and Cross-Condition Analysis</strong><br/>
-          J. Sinha, P. Bhattacharya, A. Agarwal<br/>
-          <em>19th International Conference on Automatic Face and Gesture Recognition (FG), 2025</em>
-      </li>
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <section>
+                <h3 class="section-title">About Me</h3>
+                <div class="card">
+                    <p class="card-p">
+                        Hello! I am Poulomi Bhattacharya, a PhD scholar in Data Science at the <strong>Indian Institute of Science Education and Research (IISER) Bhopal</strong>. 
+                    </p>
+                    <p class="card-p">
+                        My research interests are focused on <strong>Privacy and Security in AI</strong>, with a specialization in <strong>Image and Video Deepfake Generation and Detection</strong>. Alongside Computer Vision, my expertise spans across Deep Learning, Machine Learning, Cryptography, and Cyber Security.
+                    </p>
+                </div>
+            </section>
 
-      <li><strong>Identity in the Blood Relation: Unravelling the Complexity of Morph Detection in Kinship Biometrics​</strong><br/>
-          S. Srivastav, P. Bhattacharya, A. Agarwal, N. Ratha<br/>
-          <em>PFATCV@BMVC,2025</em>
-      </li>
+            <section>
+                <h3 class="section-title">Achievements</h3>
+                <div class="card">
+                    <div class="achieve-item">
+                        <div class="achieve-icon">★</div>
+                        <div class="achieve-text">Received <strong>InCode student travel support</strong> to attend the prestigious top-tier computer vision conference, CVPR (2025).</div>
+                    </div>
+                    <div class="achieve-item">
+                        <div class="achieve-icon">🏆</div>
+                        <div class="achieve-text">Awarded <strong>1 Gold and 1 Silver Medal</strong> in my Master’s of Sciences in Applied Mathematics from IIEST Shibpur, Howrah (2024).</div>
+                    </div>
+                    <div class="achieve-item">
+                        <div class="achieve-icon">🎯</div>
+                        <div class="achieve-text">Qualified for <strong>GATE</strong> with a score of 498 (2023).</div>
+                    </div>
+                    <div class="achieve-item">
+                        <div class="achieve-icon">🥇</div>
+                        <div class="achieve-text">Awarded <strong>3 Gold Medals</strong> in my Bachelor of Sciences in Mathematics from Banaras Hindu University (2022).</div>
+                    </div>
+                </div>
+            </section>
 
-      <li><strong>Q-MoFusion: A Quantum Classifier for Mosquito Species Classification (Student
-Abstract)</strong><br/>
-         V. Kumar, A. Chanda, P. Bhattacharya, A. Agarwal<br/>
-          <em>AAAI, 2026</em>
-      </li>
-           <li><strong>Guarding Digital Identity: Attention-Guided Fusion for Detecting Forged ID
-Documents (Student Abstract)</strong><br/>
-         G. Yeole, P. Bhattacharya, A. Agarwal<br/>
-          <em>AAAI, 2026</em>
-      </li>
-    </ul>
+            <section>
+                <h3 class="section-title">Publications</h3>
+                
+                <div class="pub-card">
+                    <div class="pub-header">
+                        <div class="pub-title">Traces Left Behind: Deepfake Detection Under the Lens of Iterative Generation</div>
+                        <!-- Intentionally omitted [paper] for CVPR -->
+                    </div>
+                    <div class="pub-authors"><strong>P. Bhattacharya</strong>, A. Agarwal, N. Ratha</div>
+                    <div class="pub-venue-badge">CVPR Workshops, 2026</div>
+                </div>
 
-    <hr/>
+                <div class="pub-card">
+                    <div class="pub-header">
+                        <div class="pub-title">Guarding Digital Identity: Attention-Guided Fusion for Detecting Forged ID Documents</div>
+                        <a href="#" class="btn-paper">[paper]</a>
+                    </div>
+                    <div class="pub-authors">G. Surendra, <strong>P. Bhattacharya</strong>, A. Agarwal</div>
+                    <div class="pub-venue-badge">AAAI Student Abstract, 2026</div>
+                </div>
 
-    <h2>Education</h2>
-    <ul class="bio">
-      <li><strong>Ph.D.</strong>, Data Science & Engineering, IISER Bhopal (2024–Present)</li>
-      <li><strong>M.Sc.</strong> — IIEST Shibpur, 2022-2024</li>
-      <li><strong>B.Sc.</strong> — Banaras Hindu University, 2019-2022</li>
-      <li><strong>Class 12</strong>,U.G.M.K. Girls' High School, 2019</li>
-      <li><strong>Class 10</strong>, U.G.M.K. Girls' High School, 2017</li>
-    </ul>
+                <div class="pub-card">
+                    <div class="pub-header">
+                        <div class="pub-title">Q-MoFusion: A Quantum Classifier for Mosquito Species Classification</div>
+                        <a href="#" class="btn-paper">[paper]</a>
+                    </div>
+                    <div class="pub-authors">V. Kumar, A. Chanda, <strong>P. Bhattacharya</strong>, A. Agarwal</div>
+                    <div class="pub-venue-badge">AAAI Student Abstract, 2026</div>
+                </div>
 
-    
-  </main>
+                <div class="pub-card">
+                    <div class="pub-header">
+                        <div class="pub-title">Gesture Recognition for Emergencies: Dataset and Cross-Condition Analysis</div>
+                        <a href="#" class="btn-paper">[paper]</a>
+                    </div>
+                    <div class="pub-authors">J. Sinha, <strong>P. Bhattacharya</strong>, A. Agarwal</div>
+                    <div class="pub-venue-badge">IEEE FG, 2025</div>
+                </div>
 
-  <footer>
-    &copy; 2025 Poulomi · using GitHub Pages
-  </footer>
+                <div class="pub-card">
+                    <div class="pub-header">
+                        <div class="pub-title">Identity in the Blood Relation: Unraveling the Complexity of Morph Detection in Kinship Biometrics</div>
+                        <a href="#" class="btn-paper">[paper]</a>
+                    </div>
+                    <div class="pub-authors">S. Srivastav, <strong>P. Bhattacharya</strong>, A. Agarwal, N. Ratha</div>
+                    <div class="pub-venue-badge">PFATCV @ BMVC, 2025</div>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">Education</h3>
+                <div class="edu-grid">
+                    
+                    <div class="edu-card">
+                        <div class="edu-date">2024 — Present</div>
+                        <h4>Ph.D. in Data Science</h4>
+                        <p>Indian Institute of Science Education and Research (IISER) Bhopal</p>
+                        <div class="edu-grade">CGPA: 8.50</div>
+                    </div>
+
+                    <div class="edu-card">
+                        <div class="edu-date">2022 — 2024</div>
+                        <h4>M.Sc. in Applied Mathematics</h4>
+                        <p>Indian Institute of Engineering Science and Technology (IIEST), Shibpur</p>
+                        <div class="edu-grade">CGPA: 9.79</div>
+                    </div>
+
+                    <div class="edu-card">
+                        <div class="edu-date">2019 — 2022</div>
+                        <h4>Undergraduate (B.Sc.) in Mathematics</h4>
+                        <p>Banaras Hindu University</p>
+                        <div class="edu-grade">CGPA: 9.46</div>
+                    </div>
+
+                    <div class="edu-card">
+                        <div class="edu-date">2019</div>
+                        <h4>Intermediate (+2)</h4>
+                        <p>Umarani Gorai Mahila Kalyan Girls’ High School</p>
+                        <div class="edu-grade">92.80%</div>
+                    </div>
+
+                    <div class="edu-card">
+                        <div class="edu-date">2017</div>
+                        <h4>High School</h4>
+                        <p>Umarani Gorai Mahila Kalyan Girls’ High School</p>
+                        <div class="edu-grade">90.57%</div>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </main>
+    </div>
 
 </body>
+
 </html>
